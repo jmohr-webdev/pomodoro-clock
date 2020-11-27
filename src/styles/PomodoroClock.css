@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Oswald&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #ffa259;
+  color: #fff;
+  font-family: Lato, sans-serif;
+  border-top: 2px solid #0c9463;
+  overflow: auto;
+}
+
+.container-session {
+  background-color: #fa4252;
+}
+
+.container-break {
+  background-color: #0c9463;
+  border-top: 2px solid #ffa259;
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 3rem;
+  font-family: Oswald, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin: 0.5rem 0 2rem;
+}
+
+.interval-title {
+  font-size: 1.4rem;
+  text-transform: lowercase;
+  letter-spacing: 0.2rem;
+}
+
+.interval-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.interval-length {
+  width: 4.8rem;
+  height: 4.8rem;
+  font-size: 3rem;
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0 2rem;
+}
+
+.btn {
+  outline: 0;
+  border: 2px solid #fff;
+  font-size: 2rem;
+  width: 4.8rem;
+  height: 4.8rem;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.065);
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.btn-left {
+  border-radius: 50% 0 0 50%;
+  margin-right: 2rem;
+  padding-left: 0.3rem;
+}
+
+.btn-right {
+  border-radius: 0 50% 50% 0;
+  margin-left: 2rem;
+  padding-right: 0.3rem;
+}
+
+.btn-play,
+.btn-sound,
+.btn-reset {
+  height: 6rem;
+  width: 6rem;
+  text-align: center;
+  padding-top: 0.3rem;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 25rem;
+  width: 25rem;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  margin: 0.5rem 0 2rem;
+}
+
+.timer-countdown {
+  font-size: 6.5rem;
+  font-family: Oswald, sans-serif;
+  text-align: center;
+}
+
+.flavor-text {
+  font-size: 1.5rem;
+  font-family: Lato, sans-serif;
+  margin-top: 1rem;
+  color: #ddd;
+}
+
+@media (orientation: landscape) {
+  .clock-container {
+    flex-direction: column;
+  }
+
+  .interval-container {
+    flex-direction: row;
+    margin: 0 5rem 0;
+  }
+
+  .session-container {
+    margin: 0 1rem 0;
+  }
+
+  .break-container {
+    margin: 0 0 0 1rem;
+  }
+}
+
+@media only screen and (max-height: 568px) {
+  .title {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (orientation: portrait) {
+  .title {
+    font-size: 5rem;
+  }
+
+  .interval-container {
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .interval-title {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .session-container {
+    margin-right: 10rem;
+  }
+
+  .timer {
+    height: 50rem;
+    width: 50rem;
+    margin-bottom: 5rem;
+    font-size: 15rem;
+  }
+
+  .flavor-text {
+    font-size: 4rem;
+  }
+
+  .btn {
+    width: 8rem;
+    height: 8rem;
+    font-size: 3rem;
+  }
+
+  .btn-play,
+  .btn-sound,
+  .btn-reset {
+    height: 10rem;
+    width: 10rem;
+  }
+}
+
+@media (min-width: 992px) and (orientation: portrait) {
+  .title {
+    font-size: 7.5rem;
+  }
+
+  .interval-title {
+    margin-bottom: 4rem;
+    font-size: 3.5rem;
+  }
+
+  .timer {
+    height: 75rem;
+    width: 75rem;
+  }
+
+  .timer-countdown {
+    font-size: 20rem;
+  }
+
+  .btn-play,
+  .btn-sound,
+  .btn-reset {
+    height: 15rem;
+    width: 15rem;
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    justify-content: start;
+    border-top: 4px solid #0c9463;
+  }
+
+  .container-green {
+    border-top: 4px solid #ffa259;
+  }
+
+  .title {
+    font-size: 5rem;
+  }
+
+  .clock-container {
+    flex-direction: column;
+  }
+
+  .interval-container {
+    flex-direction: row;
+  }
+
+  .session-container {
+    margin: 0 3rem;
+  }
+
+  .btn {
+    border-color: #ddd;
+    transition: all 0.3s;
+  }
+
+  .btn:hover {
+    border-color: #fff;
+    transform: scale(1.04);
+    font-size: 2rem;
+  }
+
+  .timer {
+    width: 40rem;
+    height: 40rem;
+    margin: 2.5rem 0;
+  }
+
+  .timer-countdown {
+    font-size: 12rem;
+  }
+
+  .flavor-text {
+    font-size: 3rem;
+  }
+}
