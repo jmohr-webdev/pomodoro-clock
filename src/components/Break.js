@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Break extends Component {
   render() {
-    let { breakLength, increment, decrement, timerRunning } = this.props;
+    const { breakLength, increment, decrement, timerRunning } = this.props;
     return (
       <div className='break buttons'>
         <button

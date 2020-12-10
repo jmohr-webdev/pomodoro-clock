@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Session from './Session';
 import Break from './Break';
 import Timer from './Timer';
+import Modal from './Modal';
 
 import Chime from '../assets/Chime.mp3';
 
@@ -18,7 +19,8 @@ class PomodoroClock extends Component {
       phase: 'session',
       timerRunning: false,
       timerId: 0,
-      sound: true
+      sound: true,
+      modalOpen: true // change to false after styling
     };
     this.audio = new Audio(Chime);
 
@@ -29,6 +31,7 @@ class PomodoroClock extends Component {
     this.togglePlay = this.togglePlay.bind(this);
     this.toggleSound = this.toggleSound.bind(this);
     this.reset = this.reset.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   increment(phase) {
@@ -126,6 +129,13 @@ class PomodoroClock extends Component {
     });
   }
 
+  toggleModal(evt) {
+    console.log(evt.target);
+    if (evt.target.className !== 'modal-contaner') {
+      this.setState({ modalOpen: !this.state.modalOpen });
+    }
+  }
+
   render() {
     const {
       breakLength,
@@ -134,7 +144,8 @@ class PomodoroClock extends Component {
       timerSeconds,
       timerRunning,
       phase,
-      sound
+      sound,
+      modalOpen
     } = this.state;
     return (
       <div
@@ -175,6 +186,7 @@ class PomodoroClock extends Component {
             reset={this.reset}
           />
         </div>
+        <Modal modalOpen={modalOpen} toggleModal={this.toggleModal} />
       </div>
     );
   }
