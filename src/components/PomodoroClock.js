@@ -6,7 +6,7 @@ import Modal from './Modal';
 
 import Chime from '../assets/Chime.mp3';
 
-import '../styles/PomodoroClock.css';
+import '../styles/pomodoroclock.css';
 
 class PomodoroClock extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class PomodoroClock extends Component {
       timerRunning: false,
       timerId: 0,
       sound: true,
-      modalOpen: true // change to false after styling
+      modalOpen: false
     };
     this.audio = new Audio(Chime);
 
@@ -48,7 +48,11 @@ class PomodoroClock extends Component {
   }
 
   decrement(phase) {
-    if (phase === 'session' && this.state.sessionLength > 0) {
+    if (
+      phase === 'session' &&
+      this.state.sessionLength >= 1 &&
+      this.state.timerMinutes > 0
+    ) {
       this.setState((state) => ({
         sessionLength: state.sessionLength - 1,
         timerMinutes: state.timerMinutes - 1
@@ -154,6 +158,10 @@ class PomodoroClock extends Component {
         }`}
       >
         <h1 className='title'>Pomodoro Clock</h1>
+        <i
+          className='fa fa-info-circle fa-3x modal-open'
+          onClick={this.toggleModal}
+        ></i>
         <div className='timer-container'>
           <div className='interval-container'>
             <div className='session-container'>

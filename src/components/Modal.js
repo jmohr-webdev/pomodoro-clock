@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/Modal.css';
+import '../styles/modal.css';
 
 class Modal extends Component {
   render() {
@@ -19,9 +19,8 @@ class Modal extends Component {
             Cirillo, named for the tomato-shaped timer he initially used.
           </p>
           <p>
-            Pick a task you want to focus on and concentrate for a set period of
-            time (typically 25 minutes) and then take a short break (typically 5
-            minutes).
+            Pick a task you want to focus on for a set period of time (typically
+            25 minutes) and then take a short break (typically 5 minutes).
           </p>
           <p>
             You may use the interval controls to set the lengths of your session

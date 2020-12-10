@@ -1,11 +1,14 @@
 .modal {
   position: absolute;
   display: none;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.8);
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
+  animation-name: modalopen;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
 }
 
 .modal-container {
@@ -26,6 +29,7 @@
   font-size: 3rem;
   font-family: 'Oswald', sans-serif;
   text-align: center;
+  text-transform: uppercase;
   color: #0c9463;
 }
 
@@ -57,4 +61,14 @@
   font-size: 1.8rem;
   color: #0c9463;
   font-weight: 700;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
