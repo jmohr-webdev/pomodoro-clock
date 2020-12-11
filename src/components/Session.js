@@ -18,10 +18,11 @@ class Session extends Component {
   render() {
     let { sessionLength, timerRunning } = this.props;
     return (
-      <div className='session buttons'>
+      <div className='session-buttons buttons'>
         <button
           className='btn btn-left'
           onClick={this.handleDecrement}
+          enabled={!timerRunning}
           disabled={timerRunning}
         >
           -

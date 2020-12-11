@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../styles/timer.css';
 
 class Timer extends Component {
   render() {
@@ -25,7 +24,7 @@ class Timer extends Component {
           </p>
         </div>
 
-        <div className='buttons button-container'>
+        <div className='buttons'>
           <button className='btn btn-left btn-sound' onClick={toggleSound}>
             {sound ? (
               <i className='fas fa-volume-up fa-lg' />

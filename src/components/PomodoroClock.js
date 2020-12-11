@@ -163,9 +163,9 @@ class PomodoroClock extends Component {
           onClick={this.toggleModal}
         ></i>
         <div className='timer-container'>
-          <div className='interval-container'>
-            <div className='session-container'>
-              <h3 className='interval-title'>Session Length</h3>
+          <div className='intervals'>
+            <div className='session'>
+              <h3 className='session-title'>Session Length</h3>
               <Session
                 sessionLength={sessionLength}
                 increment={this.increment}
@@ -173,8 +173,8 @@ class PomodoroClock extends Component {
                 timerRunning={timerRunning}
               />
             </div>
-            <div className='break-container'>
-              <h3 className='interval-title'>Break Length</h3>
+            <div className='break'>
+              <h3 className='break-title'>Break Length</h3>
               <Break
                 breakLength={breakLength}
                 increment={this.increment}

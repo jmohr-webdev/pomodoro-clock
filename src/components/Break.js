@@ -4,7 +4,7 @@ class Break extends Component {
   render() {
     const { breakLength, increment, decrement, timerRunning } = this.props;
     return (
-      <div className='break buttons'>
+      <div className='break-buttons buttons'>
         <button
           className='btn btn-left'
           onClick={() => decrement('break')}
