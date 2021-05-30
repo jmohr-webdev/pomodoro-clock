@@ -168,9 +168,13 @@ class PomodoroClock extends Component {
     });
   }
 
-  toggleModal(evt) {
-    console.log(evt.target);
-    if (evt.target.className !== 'modal-contaner') {
+  toggleModal(e) {
+    const openModal = e.target.classList.contains('modal-open');
+    const closeModal =
+      e.target.classList.contains('modal-close') ||
+      !e.target.parentElement.classList.contains('modal-container');
+
+    if (openModal || closeModal) {
       this.setState({ modalOpen: !this.state.modalOpen });
     }
   }

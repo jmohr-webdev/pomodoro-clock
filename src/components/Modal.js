@@ -9,10 +9,10 @@ class Modal extends Component {
         className={modalOpen ? 'modal show-modal' : 'modal'}
         onClick={(evt) => toggleModal(evt)}
       >
-        <div className='modal-container'>
+        <div className="modal-container">
           <h1>What is a Pomodoro Clock?</h1>
-          <button onClick={toggleModal} className='close-btn'>
-            <i className='fa fa-window-close fa-2x'></i>
+          <button onClick={toggleModal} className="close-btn modal-close">
+            <i className="fa fa-window-close fa-2x"></i>
           </button>
           <p>
             The pomodoro technique is a productivity hack developed by Francesco
@@ -24,7 +24,7 @@ class Modal extends Component {
           </p>
           <p>
             You may use the interval controls to set the lengths of your session
-            and break intervals. <span className='godspeed'>Godspeed!</span>
+            and break intervals. <span className="godspeed">Godspeed!</span>
           </p>
         </div>
       </div>
