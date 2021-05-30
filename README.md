@@ -8,6 +8,6 @@ Pick a task you want to focus on for a set period of time (typically 25 minutes)
 
 You may use the interval controls to set the lengths of your session and break intervals. Godspeed!
 <br /><br /><br />
-<img src="https://i.imgur.com/gxhnAzE.png"></img>
+<img src='https://i.imgur.com/iieTu0L.png'></img>
 <br /><br />
 <img src="https://i.imgur.com/gOGntiR.png"></img>
