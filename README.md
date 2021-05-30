@@ -10,4 +10,4 @@ You may use the interval controls to set the lengths of your session and break i
 <br /><br /><br />
 <img src='https://i.imgur.com/iieTu0L.png'></img>
 <br /><br />
-<img src="https://i.imgur.com/gOGntiR.png"></img>
+<img src="https://i.imgur.com/fJtu8Pa.png"></img>
