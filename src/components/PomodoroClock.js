@@ -20,12 +20,14 @@ class PomodoroClock extends Component {
       timerRunning: false,
       timerId: 0,
       sound: true,
-      modalOpen: false
+      modalOpen: false,
     };
     this.audio = new Audio(Chime);
 
-    this.increment = this.increment.bind(this);
-    this.decrement = this.decrement.bind(this);
+    this.incrementSession = this.incrementSession.bind(this);
+    this.incrementBreak = this.incrementBreak.bind(this);
+    this.decrementSession = this.decrementSession.bind(this);
+    this.decrementBreak = this.decrementBreak.bind(this);
     this.phaseChange = this.phaseChange.bind(this);
     this.runTimer = this.runTimer.bind(this);
     this.togglePlay = this.togglePlay.bind(this);
@@ -34,38 +36,71 @@ class PomodoroClock extends Component {
     this.toggleModal = this.toggleModal.bind(this);
   }
 
-  increment(phase) {
-    if (phase === 'session' && this.state.sessionLength < 99) {
+  incrementSession() {
+    // Won't allow session length to go above 99 minutes
+    if (this.state.sessionLength < 99) {
       this.setState((state) => ({
         sessionLength: state.sessionLength + 1,
-        timerMinutes: state.timerMinutes + 1
       }));
-    } else if (phase === 'break' && this.state.breakLength < 99) {
-      this.setState((state) => ({
-        breakLength: state.breakLength + 1
-      }));
+
+      // Adjusts timer if in session phase
+      if (this.state.phase === 'session') {
+        this.setState((state) => ({
+          timerMinutes: this.state.timerMinutes + 1,
+        }));
+      }
     }
   }
 
-  decrement(phase) {
-    if (
-      phase === 'session' &&
-      this.state.sessionLength >= 1 &&
-      this.state.timerMinutes > 0
-    ) {
+  incrementBreak() {
+    // Won't allow break length to go above 99 minutes
+    if (this.state.breakLength < 99) {
+      this.setState((state) => ({
+        breakLength: state.breakLength + 1,
+      }));
+
+      // Adjusts timer if in break phase
+      if (this.state.phase === 'break') {
+        this.setState((state) => ({
+          timerMinutes: this.state.timerMinutes + 1,
+        }));
+      }
+    }
+  }
+
+  decrementSession() {
+    // Won't allow session length to go below 1 minutes
+    if (this.state.sessionLength > 1) {
       this.setState((state) => ({
         sessionLength: state.sessionLength - 1,
-        timerMinutes: state.timerMinutes - 1
       }));
-    } else if (phase === 'break' && this.state.breakLength > 0) {
+
+      // Adjusts timer if in session phase
+      if (this.state.phase === 'session') {
+        this.setState((state) => ({
+          timerMinutes: this.state.timerMinutes - 1,
+        }));
+      }
+    }
+  }
+
+  decrementBreak() {
+    // Won't allow break length to go below 1 minutes
+    if (this.state.breakLength > 1) {
       this.setState((state) => ({
-        breakLength: state.breakLength - 1
+        breakLength: state.breakLength - 1,
       }));
+
+      // Adjusts timer if in break phase
+      if (this.state.phase === 'break') {
+        this.setState((state) => ({
+          timerMinutes: this.state.timerMinutes - 1,
+        }));
+      }
     }
   }
 
   phaseChange() {
-    console.log('phase changed called');
     let minutes, phase;
     if (this.state.phase === 'session') {
       phase = 'break';
@@ -77,7 +112,7 @@ class PomodoroClock extends Component {
     this.setState({
       phase,
       timerMinutes: minutes,
-      timerSeconds: 0
+      timerSeconds: 0,
     });
     this.runTimer();
   }
@@ -89,7 +124,7 @@ class PomodoroClock extends Component {
         case 0:
           this.setState((state) => ({
             timerSeconds: 59,
-            timerMinutes: state.timerMinutes - 1
+            timerMinutes: state.timerMinutes - 1,
           }));
           break;
         default:
@@ -129,7 +164,7 @@ class PomodoroClock extends Component {
       timerMinutes: 25,
       timerSeconds: 0,
       phase: 'session',
-      timerRunning: false
+      timerRunning: false,
     });
   }
 
@@ -149,7 +184,7 @@ class PomodoroClock extends Component {
       timerRunning,
       phase,
       sound,
-      modalOpen
+      modalOpen,
     } = this.state;
     return (
       <div
@@ -157,28 +192,28 @@ class PomodoroClock extends Component {
           phase === 'session' ? 'container-session' : 'container-break'
         }`}
       >
-        <h1 className='title'>Pomodoro Clock</h1>
+        <h1 className="title">Pomodoro Clock</h1>
         <i
-          className='fa fa-info-circle fa-3x modal-open'
+          className="fa fa-info-circle fa-3x modal-open"
           onClick={this.toggleModal}
         ></i>
-        <div className='timer-container'>
-          <div className='intervals'>
-            <div className='session'>
-              <h3 className='session-title'>Session Length</h3>
+        <div className="timer-container">
+          <div className="intervals">
+            <div className="session">
+              <h3 className="session-title">Session Length</h3>
               <Session
                 sessionLength={sessionLength}
-                increment={this.increment}
-                decrement={this.decrement}
+                increment={this.incrementSession}
+                decrement={this.decrementSession}
                 timerRunning={timerRunning}
               />
             </div>
-            <div className='break'>
-              <h3 className='break-title'>Break Length</h3>
+            <div className="break">
+              <h3 className="break-title">Break Length</h3>
               <Break
                 breakLength={breakLength}
-                increment={this.increment}
-                decrement={this.decrement}
+                increment={this.incrementBreak}
+                decrement={this.decrementBreak}
                 timerRunning={timerRunning}
               />
             </div>
