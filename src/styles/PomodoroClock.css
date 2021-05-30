@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
 
 * {
   margin: 0;
@@ -31,18 +32,18 @@
 }
 
 .title {
-  font-size: 3rem;
-  font-family: Oswald, sans-serif;
+  font-size: 2.5rem;
+  font-family: 'Courier Prime', monospace;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
-  margin: 0.5rem 0 2rem;
+  margin: 2rem 0 2rem;
 }
 
 /* ********************************************* MODAL TOGGLE  ********************************************* */
 .modal-open {
   position: absolute;
-  top: 1.5rem;
-  right: 1rem;
+  top: 2rem;
+  right: 2rem;
   color: #ddd;
   cursor: pointer;
   transition: all 0.3s;
@@ -74,8 +75,8 @@
 }
 
 .timer-countdown {
-  font-size: 6.5rem;
-  font-family: Oswald, sans-serif;
+  font-size: 6rem;
+  font-family: 'Courier Prime', monospace;
   text-align: center;
 }
 
@@ -165,25 +166,6 @@
 }
 
 /* ********************************************* MEDIA QUERIES  ********************************************* */
-/* @media (orientation: landscape) {
-  .clock-container {
-    flex-direction: column;
-  }
-
-  .intervals {
-    flex-direction: row;
-    margin: 0 5rem 0;
-  }
-
-  .session {
-    margin: 0 1rem 0;
-  }
-
-  .break {
-    margin: 0 0 0 1rem;
-  }
-} */
-
 @media (min-width: 768px) and (orientation: portrait) {
   .title {
     font-size: 5rem;
@@ -316,7 +298,7 @@
   }
 
   .timer-countdown {
-    font-size: 12rem;
+    font-size: 10rem;
   }
 
   .flavor-text {
